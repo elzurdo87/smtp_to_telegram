@@ -1,14 +1,11 @@
 # SMTP to Telegram
 
-[![Build Status](https://img.shields.io/travis/KostyaEsmukov/smtp_to_telegram.svg?style=flat-square)][Build Status]
-[![Docker Hub](https://img.shields.io/docker/pulls/kostyaesmukov/smtp_to_telegram.svg?style=flat-square)][Docker Hub]
-[![Go Report Card](https://goreportcard.com/badge/github.com/KostyaEsmukov/smtp_to_telegram?style=flat-square)][Go Report Card]
-[![License](https://img.shields.io/github/license/KostyaEsmukov/smtp_to_telegram.svg?style=flat-square)][License]
 
-[Build Status]:    https://travis-ci.org/KostyaEsmukov/smtp_to_telegram
-[Docker Hub]:      https://hub.docker.com/r/kostyaesmukov/smtp_to_telegram
-[Go Report Card]:  https://goreportcard.com/report/github.com/KostyaEsmukov/smtp_to_telegram
-[License]:         https://github.com/KostyaEsmukov/smtp_to_telegram/blob/master/LICENSE
+[![Docker Hub](https://img.shields.io/docker/pulls/elzurdo87/smtp_to_telegram_rpi.svg?style=flat-square)][Docker Hub]
+
+
+
+[Docker Hub]:      https://hub.docker.com/r/elzurdo87/smtp_to_telegram_rpi
 
 `smtp_to_telegram` is a small program which listens for SMTP and sends
 all incoming Email messages to Telegram.
@@ -28,10 +25,10 @@ the notification mail would be sent to the chosen Telegram chats.
 
 ```
 docker run \
-    --name smtp_to_telegram \
+    --name smtp_to_telegram_rpi \
     -e ST_TELEGRAM_CHAT_IDS=<CHAT_ID1>,<CHAT_ID2> \
     -e ST_TELEGRAM_BOT_TOKEN=<BOT_TOKEN> \
-    kostyaesmukov/smtp_to_telegram
+    elzurdo87/smtp_to_telegram_rpi
 ```
 
 Assuming that your Email-sending software is running in docker as well,
@@ -48,9 +45,9 @@ A custom format might be specified as well:
 
 ```
 docker run \
-    --name smtp_to_telegram \
+    --name smtp_to_telegram_rpi \
     -e ST_TELEGRAM_CHAT_IDS=<CHAT_ID1>,<CHAT_ID2> \
     -e ST_TELEGRAM_BOT_TOKEN=<BOT_TOKEN> \
     -e ST_TELEGRAM_MESSAGE_TEMPLATE="Subject: {subject}\\n\\n{body}" \
-    kostyaesmukov/smtp_to_telegram
+    elzurdo87/smtp_to_telegram_rpi
 ```
